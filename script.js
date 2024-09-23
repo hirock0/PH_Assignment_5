@@ -2,7 +2,7 @@ let AllCardsData = [
   {
     id: 0,
     cardImage: "./assets/noakhali.png",
-    alt:"noakhali",
+    alt: "noakhali",
     cardBalance: "5000",
     title: "Donate for Flood at Noakhali, Bangladesh",
     descriptions:
@@ -11,7 +11,7 @@ let AllCardsData = [
   {
     id: 1,
     cardImage: "./assets/feni.png",
-    alt:"feni",
+    alt: "feni",
     cardBalance: "200",
     title: "Donate for Flood at Noakhali, Bangladesh",
     descriptions:
@@ -21,13 +21,14 @@ let AllCardsData = [
     id: 2,
     cardImage: "./assets/quota-protest.png",
     cardBalance: "300",
-    alt:"quota-protest",
+    alt: "quota-protest",
     title: "Donate for Flood at Noakhali, Bangladesh",
     descriptions:
       "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
   },
 ];
 
+// all_cards_start
 const onAllCards = () => {
   let allCards = document.querySelector(".allCard");
   allCards.innerHTML = AllCardsData.map(
@@ -80,8 +81,10 @@ const onAllCards = () => {
 };
 onAllCards({});
 
-// all_card_amount_start
+// all_cards_end
 
+// -------------------------------------------------------------------
+// all_card_amount_start
 let donationContainer = [];
 const AllAmount = (data, id) => {
   let amount = Number(data);
@@ -102,6 +105,7 @@ const AllAmount = (data, id) => {
 AllAmount();
 // all_card_amount_end
 
+// -----------------------------------------------------------------
 // my_Balance_start
 let myAmount = 5000;
 let lessAmountArray = [];
@@ -127,14 +131,15 @@ const myBalance = (given) => {
   }
 };
 myBalance();
-
+// my_Balance_end
+// ----------------------------------------------------------------------
+// Payment_history_start
 let paymentHistory = document.querySelector(".paymentHistory");
 let donationTaka = [];
 
 let PaymentHistory = (amount) => {
   donationTaka.push(amount);
   let recentDateAndTime = new Date();
-
   paymentHistory.innerHTML = donationTaka.map(
     (item, index) =>
       `<div key={${index}} class=" border p-5 rounded-lg">
@@ -144,7 +149,19 @@ let PaymentHistory = (amount) => {
         </p>
         </div>`
   );
+  onBlankData(donationTaka);
 };
+let blankDataText = document.querySelector(".blankData");
+const onBlankData = (donationData) => {
+  if (donationData !== undefined) {
+    blankDataText.style.display = "none";
+  } else {
+    blankDataText.style.display = "block";
+  }
+};
+onBlankData();
+// Payment_history_end
+// ------------------------------------------------------
 
 // Donation_And_History_part_start
 let DonationAndHistory = () => {
@@ -169,9 +186,10 @@ let DonationAndHistory = () => {
 DonationAndHistory();
 // Donation_And_History_part_start
 // ------------------------------------------------------
-// my_Balance_end
 
-let modalPopupDiv = document.querySelector(".modalPopup")
+let modalPopupDiv = document.querySelector(".modalPopup");
+let popupDonatedBdtText = document.querySelector(".popupDonatedBDT");
+// donation_button and its_a common function_start
 const DonationNow = (Id) => {
   let InputAmount = document.querySelectorAll(".onInputValue")[Id];
   let amount = InputAmount.value;
@@ -182,17 +200,25 @@ const DonationNow = (Id) => {
     PaymentHistory(amount);
     myBalance(amount);
     AllAmount(amount, Id);
-    setTimeout(()=>{
-      modalPopupDiv.style.visibility="visible"
-    },1000)
+    popupDonatedBdtText.innerHTML = `${amount} BDT`;
+    setTimeout(() => {
+      modalPopupDiv.style.visibility = "visible";
+    }, 1000);
+    setTimeout(() => {
+      InputAmount.value = "";
+    }, 2000);
   }
 };
+// donation_button and its_a common function_end
+// ------------------------------------------------------------------
 
-const onCloseInformation = ()=>{
-  const closeInformationBtn =document.querySelector(".closeInformation")
-  closeInformationBtn.addEventListener("click",()=>{
-    modalPopupDiv.style.visibility="hidden"
-  })
-}
-onCloseInformation()
+// close_information_button_start
+const onCloseInformation = () => {
+  const closeInformationBtn = document.querySelector(".closeInformation");
+  closeInformationBtn.addEventListener("click", () => {
+    modalPopupDiv.style.visibility = "hidden";
+  });
+};
+onCloseInformation();
+// close_information_button_end
 // ----------------------------------------------------

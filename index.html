@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,9 +36,11 @@
         <div
           class="container mx-auto px-5 h-24 flex items-center justify-between"
         >
-          <button class="bg-lime-300 w-28 h-10 rounded-md font-semibold">
-            Blog
-          </button>
+          <a href="./blog.html">
+            <button class="bg-lime-300 w-28 h-10 rounded-md font-semibold">
+              Blog
+            </button>
+          </a>
           <div class="flex items-center gap-2">
             <img src="./assets/logo.png" alt="logo" width="25" height="25" />
             <h2 class="font-semibold">Donate Bangladesh</h2>
@@ -66,37 +67,39 @@
     <main>
       <div class="container mx-auto px-5">
         <!-- -------------- -->
-        <div class="allCard">
-         
-                   
-        </div>
+        <div class="allCard"></div>
 
         <!-- history_section_start -->
-        <div class=" paymentHistory h-screen hidden">
-            
-            <h1 class=" blankData text-center mt-10  text-2xl"> There is no data yet!</h1>
-
+        <div class="paymentHistory h-screen hidden">
+          <h1 class="blankData text-center mt-10 text-2xl">
+            There is no data yet!
+          </h1>
         </div>
         <!-- history_section_end -->
-
 
         <!-- -------------------- -->
       </div>
       <!-- modal_Start -->
-        <div class="modalPopup invisible fixed overflow-hidden z-50 flex items-center justify-center top-0 left-0 w-full h-full bg-slate-800/40">
-            <div class="w-1/2 h-1/2 bg-white rounded-md shadow-lg">
-                <h1 class=" text-center mt-10 text-4xl font-semibold">Congrates</h1>
-                  <div class=" flex items-center gap-3 justify-center mt-10">
-                   <img src="./assets/coin.png" alt="coin" width="40" height="40">
-                   <h1 class=" popupDonatedBDT text-xl"></h1>
-                  </div> 
-              <h1 class=" text-center mt-10 text-xl">You Have Donated For HumanKind</h1>
-              <h1 class=" text-center mt-5 text-4xl font-semibold">Successful</h1>
-              <div class=" flex items-center justify-center mt-5">
-                <button class=" closeInformation h-12 bg-slate-300 w-1/2 rounded-md">Close information</button>
-              </div>
-            </div>
-        </div>  
+      <div
+        class="modalPopup invisible fixed overflow-hidden z-50 flex items-center justify-center top-0 left-0 w-full h-full bg-slate-800/60"
+      >
+        <div class="w-1/2 h-1/2 bg-white rounded-md shadow-lg">
+          <h1 class="text-center mt-10 text-4xl font-semibold">Congrates</h1>
+          <div class="flex items-center gap-3 justify-center mt-10">
+            <img src="./assets/coin.png" alt="coin" width="40" height="40" />
+            <h1 class="popupDonatedBDT text-xl"></h1>
+          </div>
+          <h1 class="text-center mt-10 text-xl">
+            You Have Donated For HumanKind
+          </h1>
+          <h1 class="text-center mt-5 text-4xl font-semibold">Successful</h1>
+          <div class="flex items-center justify-center mt-5">
+            <button class="closeInformation h-12 bg-slate-300 w-1/2 rounded-md">
+              Close information
+            </button>
+          </div>
+        </div>
+      </div>
       <!-- modal_end -->
     </main>
 

@@ -77,7 +77,7 @@ const onAllCards = () => {
                 </div>
                 </div>
             </div>`
-  );
+  ).join("");
 };
 onAllCards({});
 
@@ -140,15 +140,17 @@ let donationTaka = [];
 let PaymentHistory = (amount) => {
   donationTaka.push(amount);
   let recentDateAndTime = new Date();
-  paymentHistory.innerHTML = donationTaka.map(
-    (item, index) =>
-      `<div key={${index}} class=" border p-5 rounded-lg">
+  paymentHistory.innerHTML = donationTaka
+    .map(
+      (item, index) =>
+        `<div key={${index}} class=" border p-5 rounded-lg">
         <p class=" text-xl font-semibold">${item} Taka is Donated for famine-2024 at Feni, Bangladesh</p>
         <p class=" text-slate-500 mt-3">
         ${recentDateAndTime}
         </p>
         </div>`
-  );
+    )
+    .join("");
   onBlankData(donationTaka);
 };
 let blankDataText = document.querySelector(".blankData");

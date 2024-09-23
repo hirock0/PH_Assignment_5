@@ -47,7 +47,7 @@
 
           <div class="flex items-center gap-3">
             <img src="./assets/coin.png" alt="dollar" />
-            <h2>5500 BDT</h2>
+            <h2 class="mainBalance"></h2>
           </div>
         </div>
       </div>
@@ -67,68 +67,36 @@
       <div class="container mx-auto px-5">
         <!-- -------------- -->
         <div class="allCard">
-          <!-- card_1_start -->
-          <div
-            class="mt-5 border border-slate-200 rounded-md shadow p-5 bg-white"
-          >
-            <div class="flex gap-10 max-lg:flex-col">
-              <div class="w-1/2 max-lg:w-full rounded-lg overflow-hidden">
-                <img
-                  src="./assets/noakhali.png"
-                  alt="noakhali"
-                  class="h-full w-full"
-                />
-              </div>
-              <div class="w-1/2 max-lg:w-full">
-                <div
-                  class="flex items-center gap-2 bg-zinc-200 p-2 rounded-md w-fit"
-                >
-                  <img
-                    src="./assets/coin.png"
-                    alt="coin"
-                    width="20"
-                    height="20"
-                  />
-                  <p>1000 BDT</p>
-                </div>
-                <h2 class="mt-5 lg:text-xl font-semibold">
-                  Donate for Flood at Noakhali, Bangladesh
-                </h2>
-                <p class="mt-5 text-slate-500 leading-7">
-                  The recent floods in Noakhali have caused significant damage
-                  to homes infrastructure. Your donation will help provide
-                  essential supplies and to those affected by this disaster.
-                  Every contribution, big or small, makes difference. Please
-                  join us in supporting the relief efforts and making a positive
-                  impact on the lives of those in need.
-                </p>
-                <input
-                  type="number"
-                  name="donateAmount"
-                  placeholder=" Write Donation Amount"
-                  class="donateInput bg-transparent border w-full h-14 pl-2 outline-none mt-5 rounded-md"
-                />
-                <button
-                  class="donationNowBtn bg-lime-300 w-full h-14 mt-5 rounded-md lg:text-xl font-semibold"
-                >
-                  Donate Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- card_1_end -->
+         
+                   
         </div>
 
         <!-- history_section_start -->
         <div class=" paymentHistory h-screen hidden">
-
+            
 
 
         </div>
         <!-- history_section_end -->
 
+
         <!-- -------------------- -->
       </div>
+      <!-- modal_Start -->
+        <div class="modalPopup invisible fixed overflow-hidden z-50 flex items-center justify-center top-0 left-0 w-full h-full bg-slate-800/40">
+            <div class="w-1/2 h-1/2 bg-white rounded-md shadow-lg">
+                <h1 class=" text-center mt-10 text-4xl font-semibold">Congrates</h1>
+                  <div class=" flex items-center justify-center mt-10">
+                <img src="./assets/coin.png" alt="coin" width="40" height="40">
+              </div> 
+              <h1 class=" text-center mt-10 text-xl">You Have Donated For HumanKind</h1>
+              <h1 class=" text-center mt-5 text-4xl font-semibold">Successful</h1>
+              <div class=" flex items-center justify-center mt-5">
+                <button class=" closeInformation h-12 bg-slate-300 w-1/2 rounded-md">Close information</button>
+              </div>
+            </div>
+        </div>  
+      <!-- modal_end -->
     </main>
 
     <footer></footer>

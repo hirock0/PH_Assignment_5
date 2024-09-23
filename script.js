@@ -1,9 +1,156 @@
-const paymentHistory = document.querySelector(".paymentHistory");
+let AllCardsData = [
+  {
+    id: 0,
+    cardImage: "./assets/noakhali.png",
+    alt:"noakhali",
+    cardBalance: "5000",
+    title: "Donate for Flood at Noakhali, Bangladesh",
+    descriptions:
+      "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
+  },
+  {
+    id: 1,
+    cardImage: "./assets/feni.png",
+    alt:"feni",
+    cardBalance: "200",
+    title: "Donate for Flood at Noakhali, Bangladesh",
+    descriptions:
+      "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
+  },
+  {
+    id: 2,
+    cardImage: "./assets/quota-protest.png",
+    cardBalance: "300",
+    alt:"quota-protest",
+    title: "Donate for Flood at Noakhali, Bangladesh",
+    descriptions:
+      "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
+  },
+];
 
-const donationNow = () => {
-  const historyBtn = document.querySelector(".historyBtn");
-  const donationBtn = document.querySelector(".donationBtn");
-  const allCards = document.querySelector(".allCard");
+const onAllCards = () => {
+  let allCards = document.querySelector(".allCard");
+  allCards.innerHTML = AllCardsData.map(
+    (item, index) =>
+      `      <div key={${index}} class="mt-5 border border-slate-200 rounded-md shadow p-5 bg-white"
+            >
+                <div class="flex gap-10 max-lg:flex-col">
+                <div class="w-1/2 max-lg:w-full rounded-lg overflow-hidden">
+                    <img
+                    src="${item.cardImage}"
+                    alt="${item.alt}"
+                    class="h-full w-full"
+                    />
+                </div>
+                <div class="w-1/2 max-lg:w-full">
+                    <div
+                    class="flex items-center gap-2 bg-zinc-200 p-2 rounded-md w-fit"
+                    >
+                    <img
+                        src="./assets/coin.png"
+                        alt="coin"
+                        width="20"
+                        height="20"
+                    />
+                    <p class=" cardBalanceDiv"> ${item.cardBalance} BDT</p>
+                    </div>
+                    <h2 class="mt-5 lg:text-xl font-semibold">
+                      ${item.title}
+                    </h2>
+                    ${item.descriptions}
+                    </p>
+                      <input
+                
+                      type="number"
+                      name="amount"
+  
+                      placeholder=" Write Donation Amount"
+                      class=" onInputValue bg-transparent border w-full h-14 pl-2 outline-none mt-5 rounded-md"
+                    />
+                    <button
+                      onclick="DonationNow(${item.id})"
+                    class="donationNowBtn bg-lime-300 w-full h-14 mt-5 rounded-md lg:text-xl font-semibold"
+                    >
+                    Donate Now
+                    </button>
+                </div>
+                </div>
+            </div>`
+  );
+};
+onAllCards({});
+
+// all_card_amount_start
+
+let donationContainer = [];
+const AllAmount = (data, id) => {
+  let amount = Number(data);
+  donationContainer.push(amount || 0);
+  let reduceValue = donationContainer.reduce(
+    (accu, item, index) => accu + item,
+    0
+  );
+  let allCardBalanceElements = document.querySelectorAll(".cardBalanceDiv");
+  AllCardsData.forEach((item, index) => {
+    let allElements = allCardBalanceElements[index];
+    if (id == index) {
+      allElements.innerHTML = `${Number(item.cardBalance) + reduceValue} BDT`;
+      donationContainer = [];
+    }
+  });
+};
+AllAmount();
+// all_card_amount_end
+
+// my_Balance_start
+let myAmount = 5000;
+let lessAmountArray = [];
+const myBalance = (given) => {
+  let lessAmount = Number(given);
+  lessAmountArray.push(lessAmount || 0);
+
+  let reduceValue = lessAmountArray.reduce(
+    (accu, item, index) => accu + item,
+    0
+  );
+
+  let mainBalance = document.querySelector(".mainBalance");
+  if (!given) {
+    mainBalance.innerHTML = `${myAmount} BDT`;
+  } else {
+    let flag = myAmount - reduceValue;
+    if (flag < 0) {
+      alert("Insufficient balance!");
+    } else {
+      mainBalance.innerHTML = `${myAmount - reduceValue} BDT`;
+    }
+  }
+};
+myBalance();
+
+let paymentHistory = document.querySelector(".paymentHistory");
+let donationTaka = [];
+
+let PaymentHistory = (amount) => {
+  donationTaka.push(amount);
+  let recentDateAndTime = new Date();
+
+  paymentHistory.innerHTML = donationTaka.map(
+    (item, index) =>
+      `<div key={${index}} class=" border p-5 rounded-lg">
+        <p class=" text-xl font-semibold">${item} Taka is Donated for famine-2024 at Feni, Bangladesh</p>
+        <p class=" text-slate-500 mt-3">
+        ${recentDateAndTime}
+        </p>
+        </div>`
+  );
+};
+
+// Donation_And_History_part_start
+let DonationAndHistory = () => {
+  let historyBtn = document.querySelector(".historyBtn");
+  let donationBtn = document.querySelector(".donationBtn");
+  let allCards = document.querySelector(".allCard");
   donationBtn.addEventListener("click", () => {
     paymentHistory.style.display = "none";
     allCards.style.display = "block";
@@ -19,34 +166,33 @@ const donationNow = () => {
     donationBtn.style.backgroundColor = "white";
   });
 };
-donationNow();
+DonationAndHistory();
+// Donation_And_History_part_start
+// ------------------------------------------------------
+// my_Balance_end
 
-// History_section
-
-const donationTaka = [];
-
-const PaymentHistory = (a) => {
-  donationTaka.push(a);
-  const recentDateAndTime = new Date()
-  paymentHistory.innerHTML = donationTaka.map(
-    (item, index) =>
-      `<div key={${index}} class=" border p-5 rounded-lg">
-        <p class=" text-xl font-semibold">${item} Taka is Donated for famine-2024 at Feni, Bangladesh</p>
-        <p class=" text-slate-500 mt-3">
-        ${recentDateAndTime}
-        </p>
-        </div>`
-  );
-};
-
-// History_end
-
-const DonateNow = () => {
-  const donationNowBtn = document.querySelector(".donationNowBtn");
-  const donateInput = document.querySelector(".donateInput");
-  donationNowBtn.addEventListener("click", () => {
-    const amount = donateInput.value;
+let modalPopupDiv = document.querySelector(".modalPopup")
+const DonationNow = (Id) => {
+  let InputAmount = document.querySelectorAll(".onInputValue")[Id];
+  let amount = InputAmount.value;
+  if (amount <= 0 || myAmount < amount) {
+    alert("Please enter correct amount!");
+    amount = "";
+  } else {
     PaymentHistory(amount);
-  });
+    myBalance(amount);
+    AllAmount(amount, Id);
+    setTimeout(()=>{
+      modalPopupDiv.style.visibility="visible"
+    },1000)
+  }
 };
-DonateNow();
+
+const onCloseInformation = ()=>{
+  const closeInformationBtn =document.querySelector(".closeInformation")
+  closeInformationBtn.addEventListener("click",()=>{
+    modalPopupDiv.style.visibility="hidden"
+  })
+}
+onCloseInformation()
+// ----------------------------------------------------

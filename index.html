@@ -37,23 +37,40 @@
           class="container mx-auto px-5 h-24 flex items-center justify-between"
         >
           <a href="./blog.html">
-            <button class="bg-lime-300 w-28 h-10 rounded-md font-semibold">
+            <button
+              class="bg-lime-300 w-28 h-10 max-sm:text-sm rounded-md font-semibold"
+            >
               Blog
             </button>
           </a>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 max-sm:hidden">
             <img src="./assets/logo.png" alt="logo" width="25" height="25" />
-            <h2 class="font-semibold">Donate Bangladesh</h2>
+            <h2 class="font-semibold max-sm">Donate Bangladesh</h2>
           </div>
 
-          <div class="flex items-center gap-3">
-            <img src="./assets/coin.png" alt="dollar" />
+          <div class="flex items-center gap-3 max-sm:gap-2">
+            <img
+              src="./assets/coin.png"
+              alt="dollar"
+              width="25"
+              height="25"
+              class="max-sm:w-5 max-sm:h-5"
+            />
             <h2 class="mainBalance"></h2>
           </div>
         </div>
       </div>
-      <div class="mt-20 flex items-center justify-center gap-5">
-        <button class="donationBtn rounded-md w-32 h-10 bg-lime-300">
+
+      <div
+        class="flex items-center gap-2 max-sm:flex max-sm:justify-center max-sm:mt-5 sm:hidden"
+      >
+        <img src="./assets/logo.png" alt="logo" width="25" height="25" />
+        <h2 class="font-semibold max-sm">Donate Bangladesh</h2>
+      </div>
+      <div class="mt-20 max-sm:mt-5 flex items-center justify-center gap-5">
+        <button
+          class="donationBtn rounded-md w-32 h-10 bg-lime-300 shadow"
+        >
           Donation
         </button>
         <button
@@ -83,18 +100,38 @@
       <div
         class="modalPopup invisible fixed overflow-hidden z-50 flex items-center justify-center top-0 left-0 w-full h-full bg-slate-800/60"
       >
-        <div class="w-1/2 h-1/2 bg-white rounded-md shadow-lg">
-          <h1 class="text-center mt-10 text-4xl font-semibold">Congrates</h1>
-          <div class="flex items-center gap-3 justify-center mt-10">
-            <img src="./assets/coin.png" alt="coin" width="40" height="40" />
-            <h1 class="popupDonatedBDT text-xl"></h1>
+        <div
+          class="w-96 h-96 max-md:w-72 max-md:h-72 max-sm:w-50 max-sm:h-72 bg-white rounded-md shadow-lg"
+        >
+          <h1
+            class="text-center mt-10 text-4xl max-md:text-2xl max-sm:text-xl font-semibold"
+          >
+            Congrates
+          </h1>
+          <div class="flex items-center gap-3 justify-center mt-10 max-md:mt-5">
+            <img
+              src="./assets/coin.png"
+              alt="coin"
+              width="40"
+              height="40"
+              class="max-md:h-8 max-md:w-8"
+            />
+            <h1 class="popupDonatedBDT text-xl max-md:text-base"></h1>
           </div>
-          <h1 class="text-center mt-10 text-xl">
+          <h1
+            class="text-center mt-10 max-md:mt-5 text-xl max-md:text-base max-sm:text-sm"
+          >
             You Have Donated For HumanKind
           </h1>
-          <h1 class="text-center mt-5 text-4xl font-semibold">Successful</h1>
+          <h1
+            class="text-center mt-5 text-4xl max-md:text-2xl max-sm:text-xl font-semibold"
+          >
+            Successful
+          </h1>
           <div class="flex items-center justify-center mt-5">
-            <button class="closeInformation h-12 bg-slate-300 w-1/2 rounded-md">
+            <button
+              class="closeInformation h-12 max-sm:h-8 max-md:h-10 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 w-1/2 max-md:w-5/6 rounded-md"
+            >
               Close information
             </button>
           </div>
@@ -103,7 +140,7 @@
       <!-- modal_end -->
     </main>
 
-    <footer></footer>
+    <footer class="mt-10 h-24 bg-zinc-100"></footer>
 
     <script src="./script.js"></script>
   </body>

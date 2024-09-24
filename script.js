@@ -13,18 +13,18 @@ let AllCardsData = [
     cardImage: "./assets/feni.png",
     alt: "feni",
     cardBalance: "200",
-    title: "Donate for Flood at Noakhali, Bangladesh",
+    title: "Donate for Flood Relief in Feni,Bangladesh",
     descriptions:
-      "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
+      "The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.",
   },
   {
     id: 2,
     cardImage: "./assets/quota-protest.png",
     cardBalance: "300",
     alt: "quota-protest",
-    title: "Donate for Flood at Noakhali, Bangladesh",
+    title: "Aid for Injured in the Quota Movement",
     descriptions:
-      "The recent floods in Noakhali have caused significant damage to homes infrastructure. Your donation will help provide essential supplies and to those affected by this disaster. Every contribution, big or small, makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.",
+      "The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.",
   },
 ];
 
@@ -33,7 +33,7 @@ const onAllCards = () => {
   let allCards = document.querySelector(".allCard");
   allCards.innerHTML = AllCardsData.map(
     (item, index) =>
-      `      <div key={${index}} class="mt-5 border border-slate-200 rounded-md shadow p-5 bg-white"
+      `      <div key={${index}} class="mt-5 border border-slate-200 rounded-md shadow p-5 max-sm:p-2 bg-white"
             >
                 <div class="flex gap-10 max-lg:flex-col">
                 <div class="w-1/2 max-lg:w-full rounded-lg overflow-hidden">
@@ -55,9 +55,11 @@ const onAllCards = () => {
                     />
                     <p class=" cardBalanceDiv"> ${item.cardBalance} BDT</p>
                     </div>
-                    <h2 class="mt-5 lg:text-xl font-semibold">
+
+                    <h2 class="mt-5 text-xl max-sm:text-base font-semibold">
                       ${item.title}
-                    </h2>
+                    </h2 ">
+                    <p class="mt-5 max-sm:text-sm ">
                     ${item.descriptions}
                     </p>
                       <input
@@ -66,11 +68,11 @@ const onAllCards = () => {
                       name="amount"
   
                       placeholder=" Write Donation Amount"
-                      class=" onInputValue bg-transparent border w-full h-14 pl-2 outline-none mt-5 rounded-md"
+                      class=" onInputValue bg-transparent border w-full h-14 max-sm:h-10  pl-2 outline-none mt-5 rounded-md"
                     />
                     <button
                       onclick="DonationNow(${item.id})"
-                    class="donationNowBtn bg-lime-300 w-full h-14 mt-5 rounded-md lg:text-xl font-semibold"
+                    class="donationNowBtn bg-lime-300 w-full h-14 max-sm:h-10 mt-5 max-sm:mt-2 rounded-md lg:text-xl font-semibold"
                     >
                     Donate Now
                     </button>

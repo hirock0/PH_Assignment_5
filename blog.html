@@ -28,25 +28,31 @@
         },
       };
     </script>
+    <link rel="icon" href="./assets/hirock.jpg" type="image/x-icon" />
 
     <title>Blog</title>
   </head>
   <body class="font-lexend">
-    <main>
-      <nav class="bg-zinc-100 sticky top-0">
-        <div class="bg-zinc-100">
+    <main class="pb-20 bg-slate-100">
+      <nav class="border-b sticky top-0 z-50 backdrop:filter backdrop-blur-xl">
+        <div class="">
           <div
             class="container mx-auto px-5 h-24 flex items-center justify-between"
           >
-            <a href="/assignment_5">
+            <a href="https://ph-assignment-5-nine.vercel.app/">
               <button
-                class="bg-lime-300 w-28 h-10 max-sm:text-sm rounded-md font-semibold"
+                class="shadow-lg bg-lime-300 hover:bg-lime-400 active:bg-lime-500 w-28 h-10 max-sm:text-sm rounded-md font-semibold"
               >
                 Home
               </button>
             </a>
             <div class="flex items-center gap-2 max-sm:hidden">
-              <img src="./assets/logo.png" alt="logo" width="25" height="25" />
+              <img
+                src="./assets/logo.png"
+                alt="logo"
+                width="35px"
+                height="35px"
+              />
               <h2 class="font-semibold max-sm">Donate Bangladesh</h2>
             </div>
 
@@ -56,7 +62,6 @@
                 alt="dollar"
                 width="25"
                 height="25"
-                class="max-sm:w-5 max-sm:h-5"
               />
               <h2 class="mainBalance"></h2>
             </div>
@@ -66,8 +71,10 @@
 
       <main>
         <div class="container mx-auto px-5">
-          <div class="mt-10 flex gap-3 items-center">
-            <h2 class="text-4xl tracking-tight">Important FAQ</h2>
+          <div class="mt-10 max-sm:mt-5 flex gap-3 items-center">
+            <h2 class="text-4xl max-md:text-2xl max-sm:text-xl tracking-tight">
+              Important FAQ
+            </h2>
             <img
               class="animate-bounce"
               src="./assets/Faq.png"
@@ -76,9 +83,11 @@
               height="70px"
             />
           </div>
+          <!-- FAQ_container -->
           <div
-            class="faqContainerDiv mt-10 flex flex-col bg-white shadow-lg border"
+            class="faqContainerDiv mt-5 max-sm:mt-2 flex flex-col bg-white shadow-lg rounded-md overflow-hidden"
           ></div>
+          <!-- FAQ_container -->
         </div>
       </main>
 
@@ -88,27 +97,51 @@
         const DataArray = [
           {
             id: 0,
-            question: "What the Document Object Model(DOM)?",
+            question: "What is the Document Object Model(DOM)?",
             answer:
-              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis laborum corporis mollitia unde nesciunt soluta, deleniti non eum obcaecati natus cumque magnam harum dolorum exercitationem reprehenderit tempore libero! Delectus?",
+              " The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of an HTML or XML document as a tree of objects. Each part of the document, such as elements, attributes, and text, is represented as a node in this tree. This model allows programming languages like JavaScript to access, modify, and interact with the document dynamically.",
           },
           {
             id: 1,
-            question: "What the Document Object Model(DOM)?",
+            question: "How do you select an element from the DOM?",
             answer:
-              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis laborum corporis mollitia unde nesciunt soluta, deleniti non eum obcaecati natus cumque magnam harum dolorum exercitationem reprehenderit tempore libero! Delectus?",
+              " You can select an element from the DOM using various JavaScript methods depending on the criteria you want to use (like ID, class, or tag). Here are the most common ways:(document.getElementById(): Selects an element by its unique id attribute.),document.getElementsByClassName(): Selects all elements with a specific class. It returns an HTMLCollection (array-like structure).document.getElementsByTagName(): Selects all elements of a specific tag (e.g., div, p). It also returns an HTMLCollection.document.querySelector(): Selects the first element that matches a CSS selector (e.g., by class, ID, or tag). ETC.",
           },
           {
             id: 2,
-            question: "What the Document Object Model(DOM)?",
+            question:
+              "What is event delegation in the context of the DOM, and why is it useful?",
             answer:
-              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis laborum corporis mollitia unde nesciunt soluta, deleniti non eum obcaecati natus cumque magnam harum dolorum exercitationem reprehenderit tempore libero! Delectus?",
+              "Event delegation is a technique in the DOM where a single event listener is attached to a parent element to manage events for multiple child elements. Instead of adding individual event listeners to each child, you listen for events at a higher level (the parent) and let the event bubble up from the child elements to the parent.  Why is it useful?Efficiency: It reduces the number of event listeners in your code, improving performance, especially when dealing with many dynamic elements.Dynamic Content: It allows handling events on child elements that are added to the DOM after the page has loaded, without needing to reattach listeners.Simpler Code: One event listener can handle multiple child elements, leading to cleaner and more maintainable code.",
           },
           {
             id: 3,
-            question: "What the Document Object Model(DOM)?",
+            question:
+              "How do you manipulate elements's attributes and styles using the DOM? ",
             answer:
-              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis laborum corporis mollitia unde nesciunt soluta, deleniti non eum obcaecati natus cumque magnam harum dolorum exercitationem reprehenderit tempore libero! Delectus?",
+              "  You can manipulate an element's attributes and styles using JavaScript DOM methods. Here’s how: You can add, modify, or remove attributes (like id, src, href, etc.) using these methods:setAttribute(): Adds or changes the value of an attribute.removeAttribute(): Removes an attribute from an element.You can change the style of an element using the style property, which allows you to directly set CSS styles.CSS Classes: You can also manage styles by adding or removing CSS classes.classList.add(): Adds a class,classList.remove(): Removes a class,classList.toggle(): Toggles a class on or off These methods allow you to dynamically control and style elements on your web page, making it interactive and responsive to user actions.",
+          },
+
+          {
+            id: 4,
+            question: "How do you add or remove elements from the DOM?",
+            answer:
+              " You can add or remove elements using various DOM methods:appendChild(): Adds a new child element to a parent.,removeChild(): Removes a child element from a parent.,insertBefore(): Inserts a new element before an existing child.,innerHTML: Adds or replaces content inside an element (though it’s less efficient).",
+          },
+
+          {
+            id: 5,
+            question: "How can you clone an element in the DOM? ",
+            answer:
+              " You can clone an element using the cloneNode() method. This method creates a copy of the specified element.such as: cloneNode(true): Clones the element along with its child elements (deep clone).,cloneNode(false): Clones the element without its children (shallow clone).,After cloning, you can insert the cloned element into the DOM using methods like appendChild().,",
+          },
+
+          {
+            id: 6,
+            question:
+              "How do you handle events for dynamically added elements using the DOM?",
+            answer:
+              " For dynamically added elements, you can use event delegation. Instead of attaching event listeners to each individual element, attach the event listener to a parent element. The event will bubble up from the child to the parent, allowing the parent to handle it.",
           },
         ];
 
@@ -118,7 +151,7 @@
           FaqContainerDiv.innerHTML = DataArray.map(
             (item, index) =>
               `
-                    <div onclick = "onFaqBtn(${index})"  key={${index}} class="border transition-all p-5 py-8 ">
+                    <div onclick = "onFaqBtn(${index})"  key={${index}} class="border-t transition-all p-5 py-8 ">
                         <button class=" flex justify-between  w-full text-start ">
                             <h1 class=" font-semibold">${item.question} </h1>
                             <svg class=" arrow w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path></svg>   

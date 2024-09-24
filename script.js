@@ -209,6 +209,7 @@ onBlankData();
 let DonationAndHistory = () => {
   let historyBtn = document.querySelector(".historyBtn");
   let donationBtn = document.querySelector(".donationBtn");
+  let Footer = document.querySelector(".footer");
   let allCards = document.querySelector(".allCard");
   donationBtn.addEventListener("click", () => {
     paymentHistory.style.display = "none";
@@ -216,6 +217,7 @@ let DonationAndHistory = () => {
     donationBtn.style.backgroundColor = "#bef264";
     historyBtn.style.backgroundColor = "white";
     historyBtn.style.border = "none";
+    Footer.style.display = "block";
   });
   historyBtn.addEventListener("click", () => {
     paymentHistory.style.display = "block";
@@ -223,6 +225,7 @@ let DonationAndHistory = () => {
     historyBtn.style.backgroundColor = "#bef264";
     historyBtn.style.border = "none";
     donationBtn.style.backgroundColor = "white";
+    Footer.style.display = "none";
   });
 };
 DonationAndHistory();

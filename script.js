@@ -31,9 +31,10 @@ let AllCardsData = [
 // all_cards_start
 const onAllCards = () => {
   let allCards = document.querySelector(".allCard");
-  allCards.innerHTML = AllCardsData.map(
-    (item, index) =>
-      `      <div key={${index}} class="mt-5 border border-slate-200 rounded-md shadow p-5 max-sm:p-2 bg-white"
+  if (allCards !== null) {
+    allCards.innerHTML = AllCardsData.map(
+      (item, index) =>
+        `      <div key={${index}} class="mt-5 border border-slate-200 rounded-md shadow p-5 max-sm:p-2 bg-white"
             >
                 <div class="flex gap-10 max-lg:flex-col">
                 <div class="w-1/2 max-lg:w-full rounded-lg overflow-hidden">
@@ -79,9 +80,11 @@ const onAllCards = () => {
                 </div>
                 </div>
             </div>`
-  ).join("");
+    ).join("");
+  }
 };
-onAllCards({});
+
+onAllCards();
 
 // all_cards_end
 
@@ -121,6 +124,7 @@ const myBalance = (given) => {
   );
 
   let mainBalance = document.querySelector(".mainBalance");
+
   if (!given) {
     mainBalance.innerHTML = `${myAmount} BDT`;
   } else {
@@ -143,11 +147,12 @@ let PaymentHistory = (amount) => {
   donationTaka.push(amount);
   let recentDateAndTime = new Date();
   paymentHistory.innerHTML = donationTaka
+    .reverse()
     .map(
       (item, index) =>
         `<div key={${index}} class=" border p-5 rounded-lg">
-        <p class=" text-xl font-semibold">${item} Taka is Donated for famine-2024 at Feni, Bangladesh</p>
-        <p class=" text-slate-500 mt-3">
+        <p class=" text-xl max-md:text-base font-semibold">${item} Taka is Donated for famine-2024 at Feni, Bangladesh</p>
+        <p class=" text-slate-500 mt-3 max-md:text-sm">
         ${recentDateAndTime}
         </p>
         </div>`
